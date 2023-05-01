@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e6ffd77b5f.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+
+</head>
+<body>
+  <nav class="navBar">
+    <ul>
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="aboutMe.html">Sobre Mim</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Estudos</a>
+        <div class="dropdown-content">
+            <a href="#">ULHT</a>
+            <a href="#">Programação Web</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Aplicações</a>
+        <div class="dropdown-content">
+            <a href="calculadora.html">Calculadora</a>
+            <a href="imagem.html">Escreve Imagem</a>
+        </div>
+      </li>
+      <li><span class="btn"><i class="fa-solid fa-sun"></i></span></li>
+    </ul>
+</nav>
+    <main class="calc">
+      <h2 class="calcTitle">Calculadora</h2>
+      <input type="text" id="resultado" value="0">
+      <br>
+      <input type="button" value="1" onclick="inserirNumero('1')">
+      <input type="button" value="2" onclick="inserirNumero('2')">
+      <input type="button" value="3" onclick="inserirNumero('3')">
+      <input type="button" value="+" onclick="operacao('+')">
+      <br>
+      <input type="button" value="4" onclick="inserirNumero('4')">
+      <input type="button" value="5" onclick="inserirNumero('5')">
+      <input type="button" value="6" onclick="inserirNumero('6')">
+      <input type="button" value="-" onclick="operacao('-')">
+      <br>
+      <input type="button" value="7" onclick="inserirNumero('7')">
+      <input type="button" value="8" onclick="inserirNumero('8')">
+      <input type="button" value="9" onclick="inserirNumero('9')">
+      <input type="button" value="*" onclick="operacao('*')">
+      <br>
+      <input type="button" value="C" onclick="limpar()">
+      <input type="button" value="0" onclick="inserirNumero('0')">
+      <input type="button" value="=" onclick="calcular()">
+      <input type="button" value="/" onclick="operacao('/')">
+    </main>
+    
+  
+    <footer>
+        <div class="footer">
+          <p>&copy; 2023 - Ricardo Duarte - a22106289 - 2º ano</p>
+          <nav>
+            <ul id="listFooter">
+              <li><a href="aboutMe.html">Sobre Mim</a></li>
+              <li><a href="aboutMe.html">Contato</a></li>
+              <li><a href="https://www.ulusofona.pt/">Universidade</a></li>
+              <li id="data"></li>
+            </ul>
+          </nav>
+        </div>
+    </footer>
+    <script>
+        const button = document.querySelector('.btn'); 
+
+        button.addEventListener('click', function() {
+            const body = document.querySelector('body');
+            if(body.hasAttribute('data-theme')){
+                body.removeAttribute('data-theme');
+                button.querySelector('i').classList.remove('fa-moon');
+                button.querySelector('i').classList.add('fa-sun');
+            }else{
+                body.setAttribute('data-theme', 'white');
+                button.querySelector('i').classList.add('fa-moon');
+                button.querySelector('i').classList.remove('fa-sun');
+            }
+        });
+
+    </script>
+    <script>
+    	var numero1 = 0;
+      var numero2 = 0;
+      var operador = '';
+      var resultado = document.getElementById('resultado');
+  
+      function inserirNumero(num) {
+        if (resultado.value === '0') {
+          resultado.value = num;
+        } else {
+          resultado.value += num;
+        }
+      }
+  
+      function operacao(op) {
+        numero1 = parseFloat(resultado.value);
+        operador = op;
+        resultado.value = '0';
+      }
+  
+      function calcular() {
+        numero2 = parseFloat(resultado.value);
+        switch (operador) {
+          case '+':
+            resultado.value = numero1 + numero2;
+            break;
+          case '-':
+            resultado.value = numero1 - numero2;
+            break;
+          case '*':
+            resultado.value = numero1 * numero2;
+            break;
+          case '/':
+          if (numero2 === 0) {
+            resultado.value = "Erro: divisão por zero";
+          } else {
+            resultado.value = numero1 / numero2;
+          }
+          break;
+      }
+      numero1 = 0;
+      numero2 = 0;
+      operador = '';
+    }
+
+    function limpar() {
+      resultado.value = '0';
+      numero1 = 0;
+      numero2 = 0;
+      operador = '';
+    }
+    </script>
+    <script>
+      const hoje = new Date();
+      const dia = hoje.getDate();
+      const mes = hoje.getMonth() + 1;
+      const ano = hoje.getFullYear();
+      const data = `${dia}/${mes}/${ano}`;
+  
+      document.getElementById("data").innerText = "Data: " + data;
+    </script>
+</body>
+</html>

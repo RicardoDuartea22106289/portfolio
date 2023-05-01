@@ -1,0 +1,300 @@
+:root{
+    --white: white;
+    --black: black;
+    --gray: #333;
+    --gray2: #444;
+} 
+[data-theme="white"]{
+    --white: black;
+    --black: white;
+    --gray: #444;
+    --gray2: #333;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBar {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: var(--gray);
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    height: 80px;
+}
+.navBar > ul{
+    list-style: none;
+    display: flex;
+}
+  
+li {
+    float: left;
+}
+  
+.navBar > ul > li > a, .btn {
+    font-size: 24px;
+    display: inline-block;
+    color: var(--white);
+    font-size: larger;
+    text-align: center;
+    padding: 28px 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+.navBar > ul > li a:hover:not(.active) {
+    background-color: var(--gray2);
+    color: var(--white);
+}
+  
+a.active {
+    background-color: var(--gray2);
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--white);
+    color: var(--black);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: var(--black);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--gray2);  
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+#texto{
+    display: flex;
+    background-color: var(--gray2);
+    color: var(--white);
+    min-height: 50px;
+    width: auto;
+}
+
+article > p{
+    font-size: 2em;
+    padding: 10%;
+}
+
+body > div{
+    display: flex;
+    min-height: 500px;
+    width: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.sobreMim{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: var(--white);
+    color: var(--white);
+    padding: 3%;
+    min-height: 1000px;
+    width: auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30% 70%;
+    grid-template-areas: 
+        'titulo titulo'
+        'aboutMe studies';
+    grid-gap: 30px;
+}
+
+.me{
+    padding-top: 20px;
+    width: 200px;
+    max-height: 200px;
+    animation: girar 2s linear;
+}
+  
+@keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+.title{
+    background-color: var(--gray2);
+    font-size: 3.5em;
+    grid-area: titulo;
+}
+
+#subTitulo{
+    font-size: 3em;
+}
+
+.aboutMe{
+    background-color: var(--gray2);
+    grid-area: aboutMe;
+}
+.studies{
+    background-color: var(--gray2);
+    grid-area: studies;
+}
+
+
+.main > p{
+    font-size: 5em;
+    color: var(--white);
+    margin-top: 7%;
+    margin-left: 40%;
+    font-family: cursive;
+}
+
+.main {
+    background-image: url("img/drave.jpg");
+}
+
+.paralax2 {
+    background-image: url("img/bandeiras.jpg");
+}
+
+
+footer {
+    margin-bottom: 0;
+    background-color: var(--gray);
+    color: var(--white);
+    padding: 20px 0;
+}
+
+.footer {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer > nav > ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.footer > nav > ul > li {
+    margin-left: 20px;   
+}
+
+.footer > nav > ul > li > a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+input[type="button"] {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--white);
+    color: var(--gray);
+    cursor: pointer;
+}
+input[type="button"]:hover {
+    background-color: var(--gray);
+    color: var(--white);
+}
+input[type="text"] {
+    font-size: 30px;
+    width: 200px;
+    height: 50px;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.calcTitle{
+    margin: 0% 10% 5% 10%;
+    color: var(--white);
+}
+
+.calc{
+    color: var(--white);
+    background-color: var(--gray);
+    font-family: Arial, sans-serif;
+    margin: 5% 5% 5% 5%;
+    width: auto;
+    height: auto;
+    justify-content: center;
+}
+
+#temp{
+    padding: 5%;
+}
+
+.calc > input{
+    justify-content: center;
+}
+
+#imagem {
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+    
+}
+
+#frase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: var(--white);
+    text-shadow: 1px 1px 2px black;
+}
+
+#btnImg{
+    
+    font-size: larger;
+    text-align: center;
+    padding: 28px 18px;
+    margin-bottom: 5%;
+    background-color: var(--gray);
+    color: var(--white);
+    
+}
